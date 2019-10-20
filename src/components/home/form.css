@@ -1,0 +1,38 @@
+.forms-wrapper {
+  padding: 10px;
+  background: #34cc11;
+}
+
+.form-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin-bottom: 3px;
+  margin-top: 10px;
+}
+
+.form-control {
+  padding: 3px;
+  border-radius: 7px;
+}
+
+.error-wrapper {
+  text-align: right;
+  max-width: 400px;
+  color: #ff0000;
+  font-size: 13px;
+}
+
+.form-botton-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 10px;
+}
