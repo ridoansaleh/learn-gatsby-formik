@@ -23,7 +23,7 @@ const EducationForm = ({ values, handleChange }) => {
     <>
       <h3 className="form-subtitle">Education</h3>
       <div className="form-control-wrapper">
-        <label for="last_education">Last Education</label>
+        <label htmlFor="last_education">Last Education</label>
         <select
           className="form-control"
           id="last_education"

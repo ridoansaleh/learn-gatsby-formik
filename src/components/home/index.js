@@ -6,6 +6,7 @@ import EducationForm from "./educationForm"
 import FamilyForm from "./familyForm"
 
 import "./form.css"
+
 import { EDUCATION } from "./formConstant"
 
 const {
@@ -16,77 +17,12 @@ const {
   BACHELOR_DEGREE,
 } = EDUCATION
 
-const WonderfulForm = () => {
+const TOTAL_FORM = 3
+
+const WizardForm = () => {
   const [step, setStep] = useState(1)
 
-  const renderLog = props => console.log("hello")
-
-  const handleNext = (e, props) => {
-    const { values } = props
-    let fields = []
-    // console.log(e)
-    console.log("1. handleNext : ", props)
-    e.preventDefault()
-    // setStep(step + 1)
-    // console.log("step : ", step)
-    if (step === 1) {
-      fields = ["name", "birth_date", "address", "phone_number"]
-    }
-    if (step === 2) {
-      fields = ["last_education"]
-      switch (values["last_education"]) {
-        case ELEMENTARY:
-          fields = ["last_education", "elementary_school"]
-          break
-        case JUNIOR_HIGH_SCHOOL:
-          fields = ["last_education", "elementary_school", "junior_high_school"]
-          break
-        case SENIOR_HIGH_SCHOOL:
-          fields = [
-            "last_education",
-            "elementary_school",
-            "junior_high_school",
-            "senior_high_school",
-          ]
-          break
-        case ASSOCIATE_DEGREE:
-          fields = [
-            "last_education",
-            "elementary_school",
-            "junior_high_school",
-            "senior_high_school",
-            "associate_degree",
-          ]
-          break
-        case BACHELOR_DEGREE:
-          fields = [
-            "last_education",
-            "elementary_school",
-            "junior_high_school",
-            "senior_high_school",
-            "associate_degree",
-            "bachelor_degree",
-          ]
-          break
-        default:
-          break
-      }
-    }
-
-    console.log("fields :=> ", fields)
-    fields.map(field => props.setFieldTouched(field, true))
-    // props.validateForm(fields)
-    // setTimeout(() => {
-    console.log("props.errors : ", props.errors)
-    console.log("2. handleNext : ", props)
-    if (fields.every(field => props.values[field] !== "")) {
-      setStep(prevStep => prevStep + 1)
-    }
-    // }, 1000)
-  }
-
   const handleValidation = values => {
-    console.log("validating..")
     let errors = {}
 
     if (step === 1) {
@@ -182,11 +118,6 @@ const WonderfulForm = () => {
     return errors
   }
 
-  const validateLastForm = props => {
-    const fields = ["father_name", "mother_name"]
-    fields.map(field => props.setFieldTouched(field, true))
-  }
-
   return (
     <div>
       <Formik
@@ -208,18 +139,14 @@ const WonderfulForm = () => {
         onSubmit={(values, actions) => {
           console.log("submit")
           console.log("Actions : ", actions)
-          // MyImaginaryRestApiCall(user.id, values).then(
-          //   updatedUser => {
-          //     actions.setSubmitting(false)
-          //     updateUser(updatedUser)
-          //     onClose()
-          //   },
-          //   error => {
-          //     actions.setSubmitting(false)
-          //     actions.setErrors(transformMyRestApiErrorsToAnObject(error))
-          //     actions.setStatus({ msg: "Set some arbitrary status or data" })
-          //   }
-          // )
+
+          if (step !== TOTAL_FORM) {
+            console.log("Next Page")
+            actions.setSubmitting(false)
+            setStep(prevStep => prevStep + 1)
+          } else {
+            console.log("Submit data")
+          }
         }}
         render={props => (
           <Form>
@@ -227,7 +154,6 @@ const WonderfulForm = () => {
               {step === 1 && <PersonalForm {...props} />}
               {step === 2 && <EducationForm {...props} />}
               {step === 3 && <FamilyForm {...props} />}
-              {/* {renderLog(props)} */}
             </div>
             {step !== 3 ? (
               <div className="form-botton-container">
@@ -236,22 +162,16 @@ const WonderfulForm = () => {
                   disabled={step === 1}
                   onClick={() => setStep(step - 1)}
                 >
-                  Previous
+                  &lt;&lt; Previous
                 </button>
-                <button type="button" onClick={e => handleNext(e, props)}>
-                  Next
-                </button>
+                <button type="submit">Next &gt;&gt;</button>
               </div>
             ) : (
               <div className="form-botton-container">
                 <button type="button" onClick={() => setStep(step - 1)}>
-                  Previous
+                  &lt;&lt; Previous
                 </button>
-                <button
-                  type="submit"
-                  disabled={props.isSubmitting}
-                  onClick={() => validateLastForm(props)}
-                >
+                <button type="submit" disabled={props.isSubmitting}>
                   Submit
                 </button>
               </div>
@@ -263,4 +183,4 @@ const WonderfulForm = () => {
   )
 }
 
-export default WonderfulForm
+export default WizardForm

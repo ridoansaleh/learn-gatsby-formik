@@ -6,7 +6,7 @@ const FamilyForm = () => {
     <>
       <h3 className="form-subtitle">Family</h3>
       <div className="form-control-wrapper">
-        <label for="father_name">Father Name</label>
+        <label htmlFor="father_name">Father Name</label>
         <Field
           className="form-control"
           type="text"
@@ -20,7 +20,7 @@ const FamilyForm = () => {
         component="div"
       />
       <div className="form-control-wrapper">
-        <label for="mother_name">Mother Name</label>
+        <label htmlFor="mother_name">Mother Name</label>
         <Field
           className="form-control"
           type="text"

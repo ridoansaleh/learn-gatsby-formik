@@ -2,17 +2,16 @@ import React from "react"
 import { Field, ErrorMessage } from "formik"
 
 const PersonalForm = props => {
-  // console.log("__props : ", props)
   return (
     <>
       <h3 className="form-subtitle">Personal</h3>
       <div className="form-control-wrapper">
-        <label for="name">Name</label>
+        <label htmlFor="name">Name</label>
         <Field className="form-control" type="text" id="name" name="name" />
       </div>
       <ErrorMessage className="error-wrapper" name="name" component="div" />
       <div className="form-control-wrapper">
-        <label for="birth_date">Birth Date</label>
+        <label htmlFor="birth_date">Birth Date</label>
         <Field
           className="form-control"
           type="date"
@@ -26,7 +25,7 @@ const PersonalForm = props => {
         component="div"
       />
       <div className="form-control-wrapper">
-        <label for="address">Address</label>
+        <label htmlFor="address">Address</label>
         <textarea
           className="form-control"
           id="address"
@@ -37,7 +36,7 @@ const PersonalForm = props => {
       </div>
       <ErrorMessage className="error-wrapper" name="address" component="div" />
       <div className="form-control-wrapper">
-        <label for="phone_number">Phone Number</label>
+        <label htmlFor="phone_number">Phone Number</label>
         <Field
           className="form-control"
           type="text"
