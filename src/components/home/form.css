@@ -36,3 +36,14 @@
 button {
   margin: 10px;
 }
+
+.form-submission-result {
+  margin: 20px 0;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin-bottom: 10px;
+}

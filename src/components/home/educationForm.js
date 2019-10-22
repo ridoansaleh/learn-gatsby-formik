@@ -10,14 +10,15 @@ import {
   BachelorDegree,
 } from "./fields"
 
+const {
+  ELEMENTARY,
+  JUNIOR_HIGH_SCHOOL,
+  SENIOR_HIGH_SCHOOL,
+  ASSOCIATE_DEGREE,
+  BACHELOR_DEGREE,
+} = EDUCATION
+
 const EducationForm = ({ values, handleChange }) => {
-  const {
-    ELEMENTARY,
-    JUNIOR_HIGH_SCHOOL,
-    SENIOR_HIGH_SCHOOL,
-    ASSOCIATE_DEGREE,
-    BACHELOR_DEGREE,
-  } = EDUCATION
   const selectedEducation = values["last_education"]
   return (
     <>

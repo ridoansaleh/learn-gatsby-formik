@@ -8,6 +8,8 @@ import FamilyForm from "./familyForm"
 import "./form.css"
 
 import { EDUCATION } from "./formConstant"
+import { postData } from "../../utils"
+import { API_URL } from "../../constant"
 
 const {
   ELEMENTARY,
@@ -21,6 +23,7 @@ const TOTAL_FORM = 3
 
 const WizardForm = () => {
   const [step, setStep] = useState(1)
+  const [result, setResult] = useState(null)
 
   const handleValidation = values => {
     let errors = {}
@@ -136,16 +139,19 @@ const WizardForm = () => {
           mother_name: "",
         }}
         validate={values => handleValidation(values)}
-        onSubmit={(values, actions) => {
-          console.log("submit")
-          console.log("Actions : ", actions)
-
+        onSubmit={async (values, actions) => {
           if (step !== TOTAL_FORM) {
-            console.log("Next Page")
             actions.setSubmitting(false)
             setStep(prevStep => prevStep + 1)
           } else {
-            console.log("Submit data")
+            try {
+              const data = await postData(API_URL, values)
+              setResult(data)
+              actions.resetForm()
+              actions.setSubmitting(false)
+            } catch (error) {
+              console.error(error)
+            }
           }
         }}
         render={props => (
@@ -179,6 +185,17 @@ const WizardForm = () => {
           </Form>
         )}
       />
+      <div className="form-submission-result">
+        {result &&
+          Object.keys(result).map((res, index) => {
+            return (
+              <div className="result-item" key={index}>
+                <span>{res} :</span>
+                <span>{result[res]}</span>
+              </div>
+            )
+          })}
+      </div>
     </div>
   )
 }
