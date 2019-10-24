@@ -162,7 +162,7 @@ const WizardForm = () => {
               {step === 3 && <FamilyForm {...props} />}
             </div>
             {step !== 3 ? (
-              <div className="form-botton-container">
+              <div className="form-button-container">
                 <button
                   type="button"
                   disabled={step === 1}
@@ -173,7 +173,7 @@ const WizardForm = () => {
                 <button type="submit">Next &gt;&gt;</button>
               </div>
             ) : (
-              <div className="form-botton-container">
+              <div className="form-button-container">
                 <button type="button" onClick={() => setStep(step - 1)}>
                   &lt;&lt; Previous
                 </button>
