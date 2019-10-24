@@ -8,12 +8,14 @@
   margin-bottom: 30px;
 }
 
+.field-container {
+  margin: 3px 0 10px;
+}
+
 .form-control-wrapper {
   display: flex;
   justify-content: space-between;
   max-width: 400px;
-  margin-bottom: 3px;
-  margin-top: 10px;
 }
 
 .form-control {
@@ -28,7 +30,7 @@
   font-size: 13px;
 }
 
-.form-botton-container {
+.form-button-container {
   display: flex;
   justify-content: center;
 }

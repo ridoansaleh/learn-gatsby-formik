@@ -1,10 +1,10 @@
 import React from "react"
 import { Field, ErrorMessage } from "formik"
 
-const FamilyForm = () => {
-  return (
-    <>
-      <h3 className="form-subtitle">Family</h3>
+const FamilyForm = () => (
+  <>
+    <h3 className="form-subtitle">Family</h3>
+    <div className="field-container">
       <div className="form-control-wrapper">
         <label htmlFor="father_name">Father Name</label>
         <Field
@@ -19,6 +19,8 @@ const FamilyForm = () => {
         name="father_name"
         component="div"
       />
+    </div>
+    <div className="field-container">
       <div className="form-control-wrapper">
         <label htmlFor="mother_name">Mother Name</label>
         <Field
@@ -33,8 +35,8 @@ const FamilyForm = () => {
         name="mother_name"
         component="div"
       />
-    </>
-  )
-}
+    </div>
+  </>
+)
 
 export default FamilyForm
