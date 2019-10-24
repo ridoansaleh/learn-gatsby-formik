@@ -1,6 +1,7 @@
 .forms-wrapper {
-  padding: 10px;
-  background: #34cc11;
+  padding: 10px 50px;
+  box-shadow: 0.1px 0.5px 10px 2px;
+  margin-top: 70px;
 }
 
 .form-subtitle {
@@ -15,17 +16,16 @@
 .form-control-wrapper {
   display: flex;
   justify-content: space-between;
-  max-width: 400px;
 }
 
 .form-control {
-  padding: 3px;
+  padding: 6px;
   border-radius: 7px;
+  width: 300px;
 }
 
 .error-wrapper {
   text-align: right;
-  max-width: 400px;
   color: #ff0000;
   font-size: 13px;
 }
@@ -33,10 +33,23 @@
 .form-button-container {
   display: flex;
   justify-content: center;
+  margin-top: 15px;
 }
 
 button {
   margin: 10px;
+  padding: 10px;
+  border: 0;
+}
+
+.previous-button {
+  background: #fcda00;
+  color: #000;
+}
+
+.next-button {
+  background: #ff0000;
+  color: #fff;
 }
 
 .form-submission-result {

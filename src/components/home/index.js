@@ -165,19 +165,30 @@ const WizardForm = () => {
               <div className="form-button-container">
                 <button
                   type="button"
+                  className="previous-button"
                   disabled={step === 1}
                   onClick={() => setStep(step - 1)}
                 >
                   &lt;&lt; Previous
                 </button>
-                <button type="submit">Next &gt;&gt;</button>
+                <button type="submit" className="next-button">
+                  Next &gt;&gt;
+                </button>
               </div>
             ) : (
               <div className="form-button-container">
-                <button type="button" onClick={() => setStep(step - 1)}>
+                <button
+                  type="button"
+                  className="previous-button"
+                  onClick={() => setStep(step - 1)}
+                >
                   &lt;&lt; Previous
                 </button>
-                <button type="submit" disabled={props.isSubmitting}>
+                <button
+                  type="submit"
+                  className="next-button"
+                  disabled={props.isSubmitting}
+                >
                   Submit
                 </button>
               </div>
