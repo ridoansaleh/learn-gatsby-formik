@@ -40,6 +40,14 @@ const WizardForm = () => {
       }
       if (!values.phone_number) {
         errors.phone_number = "Phone number is required"
+      } else {
+        if (!/\d+$/i.test(values.phone_number)) {
+          errors.phone_number = "Only number is allowed"
+        } else {
+          if (values.phone_number.toString().length > 12) {
+            errors.phone_number = "Only allowed maximal to 12 digits"
+          }
+        }
       }
     }
 
