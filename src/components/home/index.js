@@ -37,11 +37,15 @@ const WizardForm = () => {
       }
       if (!values.address) {
         errors.address = "Address is required"
+      } else {
+        if (values.address.length < 10) {
+          errors.address = "Address should be 10 or more characters"
+        }
       }
       if (!values.phone_number) {
         errors.phone_number = "Phone number is required"
       } else {
-        if (!/\d+$/i.test(values.phone_number)) {
+        if (!/^\d+$/i.test(values.phone_number)) {
           errors.phone_number = "Only number is allowed"
         } else {
           if (values.phone_number.toString().length > 12) {
